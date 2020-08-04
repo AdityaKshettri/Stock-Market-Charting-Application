@@ -1,0 +1,174 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/companies" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back To List of Companies
+    </a>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Add Company
+  </div>
+  <div class="card-body">
+    <form #companyForm="ngForm" (ngSubmit)="onSubmit(companyForm)">
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          name="companyName"
+          #companyName="ngModel"
+          [ngClass]="{'is-invalid': companyName.errors && companyName.touched}"
+          [(ngModel)]="company.name"
+          placeholder="Company Name"
+          minlength="2"
+          required>
+        <div [hidden]="!companyName.errors?.required" class="invalid-feedback">
+          Company name required
+        </div>
+        <div [hidden]="!companyName.errors?.minlength" class="invalid-feedback">
+          Must be atleast 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          name="companyCode"
+          #companyCode="ngModel"
+          [ngClass]="{'is-invalid': companyCode.errors && companyCode.touched}"
+          [(ngModel)]="company.code"
+          placeholder="Company Code"
+          minlength="2"
+          required>
+        <div [hidden]="!companyCode.errors?.required" class="invalid-feedback">
+          Company Code required
+        </div>
+        <div [hidden]="!companyCode.errors?.minlength" class="invalid-feedback">
+          Must be atleast 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          name="companyTurnover"
+          #companyTurnover="ngModel"
+          [ngClass]="{'is-invalid': companyTurnover.errors && companyTurnover.touched}"
+          [(ngModel)]="company.turnover"
+          placeholder="Company Turnover"
+          minlength="2"
+          required>
+        <div [hidden]="!companyTurnover.errors?.required" class="invalid-feedback">
+          Company Turnover required
+        </div>
+        <div [hidden]="!companyTurnover.errors?.minlength" class="invalid-feedback">
+          Must be atleast 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          name="companyCeo"
+          #companyCeo="ngModel"
+          [ngClass]="{'is-invalid': companyCeo.errors && companyCeo.touched}"
+          [(ngModel)]="company.ceo"
+          placeholder="Chief Executive Officer"
+          minlength="2"
+          required>
+        <div [hidden]="!companyCeo.errors?.required" class="invalid-feedback">
+          CEO of Company required
+        </div>
+        <div [hidden]="!companyCeo.errors?.minlength" class="invalid-feedback">
+          Must be atleast 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          name="boardOfDirectors"
+          #boardOfDirectors="ngModel"
+          [ngClass]="{'is-invalid': boardOfDirectors.errors && boardOfDirectors.touched}"
+          [(ngModel)]="company.boardOfDirectors"
+          placeholder="Board Of Directors (seperated by comma)"
+          minlength="2"
+          required>
+        <div [hidden]="!boardOfDirectors.errors?.required" class="invalid-feedback">
+          CEO of Company required
+        </div>
+        <div [hidden]="!boardOfDirectors.errors?.minlength" class="invalid-feedback">
+          Must be atleast 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          name="stockExchangeNames"
+          #stockExchangeNames="ngModel"
+          [ngClass]="{'is-invalid': stockExchangeNames.errors && stockExchangeNames.touched}"
+          [(ngModel)]="company.stockExchangeNames"
+          placeholder="Stock Exchanges (seperated by comma)"
+          minlength="2"
+          required>
+        <div [hidden]="!stockExchangeNames.errors?.required" class="invalid-feedback">
+          Stock Exchange Names required
+        </div>
+        <div [hidden]="!stockExchangeNames.errors?.minlength" class="invalid-feedback">
+          Must be atleast 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          name="sectorName"
+          #sectorName="ngModel"
+          [ngClass]="{'is-invalid': sectorName.errors && sectorName.touched}"
+          [(ngModel)]="company.sectorName"
+          placeholder="Sector Name"
+          minlength="2"
+          required>
+        <div [hidden]="!sectorName.errors?.required" class="invalid-feedback">
+          Sector name required
+        </div>
+        <div [hidden]="!sectorName.errors?.minlength" class="invalid-feedback">
+          Must be atleast 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          name="description"
+          #description="ngModel"
+          [ngClass]="{'is-invalid': description.errors && description.touched}"
+          [(ngModel)]="company.description"
+          placeholder="Company Description"
+          minlength="2"
+          required>
+        <div [hidden]="!description.errors?.required" class="invalid-feedback">
+          Description for the company required
+        </div>
+        <div [hidden]="!description.errors?.minlength" class="invalid-feedback">
+          Must be atleast 2 characters
+        </div>
+      </div>
+
+      <input type="submit" value="Submit" class="btn btn-primary btn-block">
+    </form>
+  </div>
+</div>

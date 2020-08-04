@@ -1,0 +1,99 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/stock-exchanges" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back To List of Stock Exchanges
+    </a>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Add Company
+  </div>
+  <div class="card-body">
+    <form #stockExchangeForm="ngForm" (ngSubmit)="onSubmit(stockExchangeForm)">
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          #name="ngModel"
+          [ngClass]="{'is-invalid': name.errors && name.touched}"
+          [(ngModel)]="stockExchange.name"
+          placeholder="Stock Exchange Name"
+          minlength="2"
+          required>
+        <div [hidden]="!name.errors?.required" class="invalid-feedback">
+          Stock Exchange name required
+        </div>
+        <div [hidden]="!name.errors?.minlength" class="invalid-feedback">
+          Must be atleast 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          name="description"
+          #description="ngModel"
+          [ngClass]="{'is-invalid': description.errors && description.touched}"
+          [(ngModel)]="stockExchange.description"
+          placeholder="Stock Exchange Description"
+          minlength="2"
+          required>
+        <div [hidden]="!description.errors?.required" class="invalid-feedback">
+          Description for the Stock Exchange required
+        </div>
+        <div [hidden]="!description.errors?.minlength" class="invalid-feedback">
+          Must be atleast 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          name="address"
+          #address="ngModel"
+          [ngClass]="{'is-invalid': address.errors && address.touched}"
+          [(ngModel)]="stockExchange.address"
+          placeholder="Contact Address"
+          minlength="2"
+          required>
+        <div [hidden]="!address.errors?.required" class="invalid-feedback">
+          Contact Address for the Stock Exchange required
+        </div>
+        <div [hidden]="!address.errors?.minlength" class="invalid-feedback">
+          Must be atleast 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          name="remarks"
+          #remarks="ngModel"
+          [ngClass]="{'is-invalid': remarks.errors && remarks.touched}"
+          [(ngModel)]="stockExchange.remarks"
+          placeholder="Remarks"
+          minlength="2"
+          required>
+        <div [hidden]="!remarks.errors?.required" class="invalid-feedback">
+          Remarks required
+        </div>
+        <div [hidden]="!remarks.errors?.minlength" class="invalid-feedback">
+          Must be atleast 2 characters
+        </div>
+      </div>
+
+      <input type="submit" value="Submit" class="btn btn-primary btn-block">
+    </form>
+  </div>
+</div>
+

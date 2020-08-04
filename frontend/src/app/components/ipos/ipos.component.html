@@ -1,0 +1,27 @@
+<table *ngIf="ipos?.length>0; else noIpos" class="table table-striped">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Company Name</th>
+      <th>Stock Exchange</th>
+      <th>Price per Share</th>
+      <th>Number of Shares</th>
+      <th>Open Date Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ipo of ipos">
+      <td></td>
+      <td>{{ ipo.companyName }}</td>
+      <td>{{ ipo.stockExchangeName }}</td>
+      <td>{{ ipo.price }}</td>
+      <td>{{ ipo.shares }}</td>
+      <td>{{ ipo.openDateTime }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #noIpos>
+  <hr>
+  <h5>There are no IPOs in the system.</h5>
+</ng-template>
+

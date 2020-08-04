@@ -1,0 +1,30 @@
+<hr>
+<a routerLink="/create-stock-exchange" class="btn btn-primary">Add new Stock Exchange</a>
+
+<table *ngIf="stockExchanges?.length>0; else noStockExchanges" class="table table-striped">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Contact Address</th>
+      <th>Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let stockExchange of stockExchanges">
+      <td></td>
+      <td>{{ stockExchange.name }}</td>
+      <td>{{ stockExchange.description }}</td>
+      <td>{{ stockExchange.address }}</td>
+      <td>{{ stockExchange.remarks }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #noStockExchanges>
+  <br>
+  <br>
+  <h5>There are no Stock Exchanges in the system.</h5>
+</ng-template>
+
+

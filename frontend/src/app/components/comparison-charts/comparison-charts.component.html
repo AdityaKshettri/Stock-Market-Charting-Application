@@ -1,0 +1,115 @@
+<div class="card">
+  <div class="card-header">
+    Comparison Charts
+  </div>
+
+  <div class="card-body">
+    <form #compareForm="ngForm" (ngSubmit)="onSubmit(compareForm)">
+
+      <!--<div class="form-group">
+        <label for="basedOn">Select Company/Sector</label>
+        <select
+          type="text"
+          class="form-control mdb-select md-form colorful-select dropdown-primary"
+          name="basedOn"
+          #basedOn="ngModel"
+          [ngClass]="{'is-invalid': basedOn.errors && name.touched}"
+          [(ngModel)]="basedOn"
+          required>
+          <option value="Company">Company</option>
+          <option value="Sector">Sector</option>
+        </select>
+      </div>-->
+
+      <div class="form-group">
+        <label for="stockExchangeName">Select Stock Exchange</label>
+        <select
+          type="text"
+          class="form-control"
+          name="stockExchangeName"
+          #stockExchangeName="ngModel"
+          [(ngModel)]="comparison.stockExchangeName"
+          required>
+          <option value="BSE">BSE</option>
+          <option value="NSE">NSE</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Company Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          #name="ngModel"
+          [ngClass]="{'is-invalid': name.errors && name.touched}"
+          [(ngModel)]="comparison.name"
+          placeholder="Company Name"
+          minlength="2"
+          required>
+        <div [hidden]="!name.errors?.required" class="invalid-feedback">
+          Company Name required
+        </div>
+        <div [hidden]="!name.errors?.minlength" class="invalid-feedback">
+          Must be atleast 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="fromPeriod">From Period (dd-MM-YYYY)</label>
+        <input
+          type="text"
+          class="form-control"
+          name="fromPeriod"
+          #fromPeriod="ngModel"
+          [ngClass]="{'is-invalid': fromPeriod.errors && fromPeriod.touched}"
+          [(ngModel)]="comparison.fromPeriod"
+          required>
+        <div [hidden]="!fromPeriod.errors?.required" class="invalid-feedback">
+          From Period required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="toPeriod">To Period (dd-MM-YYYY)</label>
+        <input
+          type="text"
+          class="form-control"
+          name="toPeriod"
+          #toPeriod="ngModel"
+          [ngClass]="{'is-invalid': toPeriod.errors && toPeriod.touched}"
+          [(ngModel)]="comparison.toPeriod"
+          required>
+        <div [hidden]="!toPeriod.errors?.required" class="invalid-feedback">
+          To Period required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="periodicity">Specify Periodicity</label>
+        <select
+          type="text"
+          class="form-control"
+          name="periodicity"
+          #periodicity="ngModel"
+          [(ngModel)]="comparison.periodicity"
+          required>
+          <option value="Day">Day</option>
+          <option value="Week">Week</option>
+          <option value="Month">Month</option>
+          <option value="Year">Year</option>
+        </select>
+        <div [hidden]="!periodicity.errors?.required" class="invalid-feedback">
+          Periodicity required
+        </div>
+      </div>
+
+      <input type="submit" value="Generate Map" class="btn btn-primary btn-block">
+    </form>
+  </div>
+</div>
+
+<div *ngIf="chart">
+  <canvas id="canvas">{{ chart }}</canvas>
+</div>
+

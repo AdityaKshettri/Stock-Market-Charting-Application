@@ -1,0 +1,20 @@
+<div class="card">
+  <div *ngIf="!isUploaded" class="col-md-8 form-group">
+    <input
+      type="file"
+      class="form-control"
+      (change)="onUpload($event)"
+      placeholder="Upload file"
+      accept=".csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+    <a href="../../../assets/sample_stock_data.xlsx">Click here to download sample excel file.</a>
+  </div>
+
+  <div *ngIf="isUploaded">
+    <h2>Summary of Upload</h2>
+    <h3>Company Code : {{ companyCode }}</h3>
+    <h3>Stock Exchange : {{ stockExchangeName }}</h3>
+    <h3>No. of Records Imported : {{ numberOfRecords }}</h3>
+    <h3>From Date : {{ fromDate }}</h3>
+    <h3>To Date : {{ toDate }}</h3>
+  </div>
+</div>

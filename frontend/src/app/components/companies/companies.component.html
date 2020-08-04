@@ -1,0 +1,31 @@
+<hr>
+<a routerLink="/create-company" class="btn btn-primary">Add new Company</a>
+<br>
+<br>
+
+<table *ngIf="companies?.length>0; else noCompanies" class="table table-striped">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Company Name</th>
+      <th>Stock Exchanges</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let company of companies">
+      <td>{{ company.name }}</td>
+      <td>{{ company.stockExchangeNames }}</td>
+      <td>{{ company.description }}</td>
+      <td>
+        <a routerLink="edit-company/{{ company.id }}" class="btn btn-secondary btn-sm">
+          <i class="fa fa-pencil"></i> Edit
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #noCompanies>
+  <h5>There are no clients in the system.</h5>
+</ng-template>
