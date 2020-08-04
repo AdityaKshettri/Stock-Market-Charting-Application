@@ -20,4 +20,8 @@ export class IposComponent implements OnInit {
         this.ipos = response;
       })
   }
+
+  onDeleteClick(id: string) {
+    this.ipoService.deleteIpo(id);
+  }
 }

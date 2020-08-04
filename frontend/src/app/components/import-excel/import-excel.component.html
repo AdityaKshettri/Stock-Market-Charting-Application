@@ -1,20 +1,41 @@
-<div class="card">
+<div>
   <div *ngIf="!isUploaded" class="col-md-8 form-group">
-    <input
-      type="file"
-      class="form-control"
-      (change)="onUpload($event)"
-      placeholder="Upload file"
-      accept=".csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Upload</span>
+      </div>
+      <div class="custom-file">
+        <input
+          type="file"
+          class="form-control"
+          (change)="onUpload($event)"
+          placeholder="Upload file"
+          id="excel"
+          accept=".csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+        <label class="custom-file-label" for="excel">Choose file</label>
+      </div>
+    </div><br><br>
     <a href="../../../assets/sample_stock_data.xlsx">Click here to download sample excel file.</a>
   </div>
 
-  <div *ngIf="isUploaded">
-    <h2>Summary of Upload</h2>
-    <h3>Company Code : {{ companyCode }}</h3>
-    <h3>Stock Exchange : {{ stockExchangeName }}</h3>
-    <h3>No. of Records Imported : {{ numberOfRecords }}</h3>
-    <h3>From Date : {{ fromDate }}</h3>
-    <h3>To Date : {{ toDate }}</h3>
+  <div *ngIf="isUploaded" class="card" style="width: 20rem;">
+    <img class="card-img-top" src="../../../assets/stocks.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Summary of Upload</h5>
+      <p class="card-text">Your input stock price data is successfully uploaded.</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Company Code : {{ companyCode }}</li>
+      <li class="list-group-item">Stock Exchange : {{ stockExchangeName }}</li>
+      <li class="list-group-item">No. of Records Imported : {{ numberOfRecords }}</li>
+      <li class="list-group-item">From Date : {{ fromDate }}</li>
+      <li class="list-group-item">To Date : {{ toDate }}</li>
+    </ul>
+    <div class="card-body">
+      <button (click)="importAgain()" class="card-link">Upload More Data</button>
+      <a routerLink="/stock-prices" class="card-link">Stock Price List</a>
+    </div>
   </div>
 </div>
+
+

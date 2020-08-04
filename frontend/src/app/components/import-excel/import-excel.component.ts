@@ -66,4 +66,7 @@ export class ImportExcelComponent implements OnInit {
     this.stockPriceService.addStockPriceList(this.stockPrices);
   }
 
+  importAgain() {
+    this.isUploaded = false;
+  }
 }

@@ -14,7 +14,7 @@ export class IpoService {
   url: string;
 
   constructor(private http: HttpClient, private router: Router) {
-    this.url = 'http://companyservice-env.eba-2jpmpvgp.ap-south-1.elasticbeanstalk.com/ipos';
+    this.url = 'http://companyservice-env.eba-2jpmpvgp.ap-south-1.elasticbeanstalk.com/ipos/';
   }
 
   public getIpos(): Observable<IPO[]> {
@@ -39,7 +39,7 @@ export class IpoService {
       });
   }
 
-  deleteCompany(id: string) {
+  deleteIpo(id: string) {
     this.http.delete(this.url + id)
       .subscribe(response => {
         this.router.navigate(['/ipos']);

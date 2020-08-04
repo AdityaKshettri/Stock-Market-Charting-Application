@@ -1,21 +1,37 @@
+<hr>
+<a routerLink="/create-ipo" class="btn btn-primary">Add new IPO</a>
+<br>
+<br>
+
 <table *ngIf="ipos?.length>0; else noIpos" class="table table-striped">
-  <thead class="thead-inverse">
+  <thead class="thead-inverse thead-dark">
     <tr>
       <th>Company Name</th>
       <th>Stock Exchange</th>
       <th>Price per Share</th>
       <th>Number of Shares</th>
       <th>Open Date Time</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let ipo of ipos">
-      <td></td>
       <td>{{ ipo.companyName }}</td>
       <td>{{ ipo.stockExchangeName }}</td>
       <td>{{ ipo.price }}</td>
       <td>{{ ipo.shares }}</td>
       <td>{{ ipo.openDateTime }}</td>
+      <td>
+        <a routerLink="edit-ipo/{{ ipo.id }}" class="btn btn-secondary btn-sm">
+          <i class="fa fa-pencil"></i> Edit
+        </a>
+      </td>
+      <td>
+        <button (click)="onDeleteClick(ipo.id)" class="btn btn-secondary btn-sm">
+          <i class="fa fa-trash"></i> Delete
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>

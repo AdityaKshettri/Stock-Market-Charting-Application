@@ -15,7 +15,7 @@ export class CompanyService {
   url: string;
 
   constructor(private http: HttpClient, private router: Router) {
-    this.url = 'http://companyservice-env.eba-2jpmpvgp.ap-south-1.elasticbeanstalk.com/companies';
+    this.url = 'http://companyservice-env.eba-2jpmpvgp.ap-south-1.elasticbeanstalk.com/companies/';
   }
 
   getCompanies(): Observable<Company[]> {

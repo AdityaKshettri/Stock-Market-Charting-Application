@@ -1,1 +1,59 @@
-<p>create-sector works!</p>
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/sectors" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back To List of Sectors
+    </a>
+  </div>
+  <div class="col-md-6">
+  </div>
+</div>
+<br>
+<div class="card">
+  <div class="card-header">
+    Add Sector
+  </div>
+  <div class="card-body">
+    <form #sectorForm="ngForm" (ngSubmit)="onSubmit(sectorForm)">
+
+      <div class="form-group">
+        <label for="sectorName">Sector Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="sectorName"
+          #sectorName="ngModel"
+          [ngClass]="{'is-invalid': sectorName.errors && sectorName.touched}"
+          [(ngModel)]="sector.name"
+          minlength="2"
+          required>
+        <div [hidden]="!sectorName.errors?.required" class="invalid-feedback">
+          Sector name required
+        </div>
+        <div [hidden]="!sectorName.errors?.minlength" class="invalid-feedback">
+          Must be atleast 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Sector Description</label>
+        <input
+          type="text"
+          class="form-control"
+          name="description"
+          #description="ngModel"
+          [ngClass]="{'is-invalid': description.errors && description.touched}"
+          [(ngModel)]="sector.description"
+          minlength="2"
+          required>
+        <div [hidden]="!description.errors?.required" class="invalid-feedback">
+          Description for the company required
+        </div>
+        <div [hidden]="!description.errors?.minlength" class="invalid-feedback">
+          Must be atleast 2 characters
+        </div>
+      </div>
+
+      <input type="submit" value="Submit" class="btn btn-primary btn-block">
+    </form>
+  </div>
+</div>
