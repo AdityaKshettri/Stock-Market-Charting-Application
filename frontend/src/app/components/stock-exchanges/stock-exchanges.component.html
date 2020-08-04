@@ -1,22 +1,35 @@
 <hr>
 <a routerLink="/create-stock-exchange" class="btn btn-primary">Add new Stock Exchange</a>
+<br>
+<br>
 
-<table *ngIf="stockExchanges?.length>0; else noStockExchanges" class="table table-striped">
+<table *ngIf="stockExchanges?.length>0; else noStockExchanges" class="table table-striped table-dark">
   <thead class="thead-inverse">
     <tr>
       <th>Name</th>
       <th>Description</th>
       <th>Contact Address</th>
       <th>Remarks</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let stockExchange of stockExchanges">
-      <td></td>
       <td>{{ stockExchange.name }}</td>
       <td>{{ stockExchange.description }}</td>
       <td>{{ stockExchange.address }}</td>
       <td>{{ stockExchange.remarks }}</td>
+      <td>
+        <a routerLink="edit-stock-exchange/{{ stockExchange.id }}" class="btn btn-secondary btn-sm">
+          <i class="fa fa-pencil"></i> Edit
+        </a>
+      </td>
+      <td>
+        <button (click)="onDeleteClick(stockExchange.id)" class="btn btn-secondary btn-sm">
+          <i class="fa fa-trash"></i> Delete
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>

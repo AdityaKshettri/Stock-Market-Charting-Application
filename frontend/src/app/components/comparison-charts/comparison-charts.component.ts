@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Chart } from 'chart.js';
 
 import { Comparison } from '../../models/Comparison';
-import { StockPriceService } from 'src/app/services/stock-price.service';
+import { StockPriceService } from '../../services/stock-price.service';
 
 @Component({
   selector: 'app-comparison-charts',
@@ -12,6 +12,7 @@ import { StockPriceService } from 'src/app/services/stock-price.service';
 export class ComparisonChartsComponent implements OnInit {
 
   chart: any = [];
+  //show: boolean = false;
 
   comparison: Comparison = {
     name: '',
@@ -21,7 +22,7 @@ export class ComparisonChartsComponent implements OnInit {
     periodicity: ''
   }
 
-  constructor(private stockPriceService: StockPriceService) { }
+  constructor(private stockPriceService: StockPriceService, private elementRef: ElementRef) { }
 
   ngOnInit(): void {
   }
@@ -39,8 +40,10 @@ export class ComparisonChartsComponent implements OnInit {
           let dates = response.map(res => res.date);
           console.log(prices);
           console.log(dates);
-
-          this.chart = new Chart('canvas', {
+          //this.show = true;
+          let htmlRef = this.elementRef.nativeElement.querySelector("#canvasId");
+          console.log(htmlRef);
+          this.chart = new Chart(htmlRef, {
             type: 'line',
             data: {
               labels: dates,
@@ -66,8 +69,8 @@ export class ComparisonChartsComponent implements OnInit {
               }
             }
           });
+          console.log(this.chart);
         });
-
     }
   }
 

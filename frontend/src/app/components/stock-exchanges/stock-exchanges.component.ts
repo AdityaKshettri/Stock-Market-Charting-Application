@@ -20,4 +20,8 @@ export class StockExchangesComponent implements OnInit {
         this.stockExchanges = response;
       });
   }
+
+  onDeleteClick(id: string) {
+    this.stockExchangeService.deleteStockExchange(id);
+  }
 }

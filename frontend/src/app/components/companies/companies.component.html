@@ -10,6 +10,7 @@
       <th>Stock Exchanges</th>
       <th>Description</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +22,11 @@
         <a routerLink="edit-company/{{ company.id }}" class="btn btn-secondary btn-sm">
           <i class="fa fa-pencil"></i> Edit
         </a>
+      </td>
+      <td>
+        <button (click)="onDeleteClick(company.id)" class="btn btn-secondary btn-sm">
+          <i class="fa fa-trash"></i> Delete
+        </button>
       </td>
     </tr>
   </tbody>

@@ -18,7 +18,7 @@ export class SectorService {
     this.url = 'http://sectorservice-env.eba-uxpehump.ap-south-1.elasticbeanstalk.com/sectors';
   }
 
-  public getSectors(): Observable<Sector[]> {
+  getSectors(): Observable<Sector[]> {
     return this.http.get<Sector[]>(this.url);
   }
 

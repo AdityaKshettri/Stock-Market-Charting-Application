@@ -21,4 +21,8 @@ export class CompaniesComponent implements OnInit {
       });
   }
 
+  onDeleteClick(id: string) {
+    this.companyService.deleteCompany(id);
+  }
+
 }

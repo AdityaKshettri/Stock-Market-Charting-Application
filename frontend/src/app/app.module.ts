@@ -27,6 +27,8 @@ import { AuthService } from './services/auth.service';
 
 import { AuthInterceptor } from './interceptors/auth-interceptor';
 
+import {Chart} from 'chart.js';
+
 @NgModule({
   declarations: [
     AppComponent,
