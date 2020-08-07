@@ -1,7 +1,7 @@
 # Stock-Market-Charting-Application
 In this project, I have worked on Spring Boot microservices along with MongoDB Atlas as backend and Angular.js as frontend to design a Stock Market Charting Application.
 
-# Microservices AWS Deployement (can be verified using swagger):
+# Microservices AWS Deployment (can be verified using swagger):
 
 1- Company Service : 
 
